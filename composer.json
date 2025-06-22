@@ -1,0 +1,7 @@
+{
+    "require": {
+        "timber/timber": "^2.3",
+        "hellonico/timber-dump-extension": "^2.0",
+        "johnbillion/extended-cpts": "^5.1"
+    }
+}
