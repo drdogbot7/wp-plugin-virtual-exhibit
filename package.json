@@ -9,7 +9,6 @@
   },
   "scripts": {
     "wp-env": "wp-env",
-    "build": "wp-scripts build",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
     "format": "wp-scripts format",
@@ -18,9 +17,18 @@
     "lint:md:docs": "wp-scripts lint-md-docs",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "packages-update": "wp-scripts packages-update",
-    "plugin-zip": "wp-scripts plugin-zip",
-    "start": "wp-scripts start",
     "test:e2e": "wp-scripts test-e2e",
-    "composer": "wp-env run cli --env-cwd=wp-content/plugins/virtual-exhibit-plugin composer"
+    "composer": "wp-env run cli --env-cwd=wp-content/plugins/virtual-exhibit-plugin composer",
+    "start": "wp-scripts start src/index.js",
+    "build": "wp-scripts build src/index.js"
+  },
+  "dependencies": {
+    "@alpinejs/collapse": "^3.14.9",
+    "@alpinejs/focus": "^3.14.9",
+    "@tailwindcss/postcss": "^4.1.10",
+    "alpinejs": "^3.14.9",
+    "tailwindcss": "^4.1.10",
+    "tiny-slider": "^2.9.4",
+    "tippy.js": "^6.3.7"
   }
 }
