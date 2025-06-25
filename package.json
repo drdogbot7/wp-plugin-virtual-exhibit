@@ -20,7 +20,8 @@
     "test:e2e": "wp-scripts test-e2e",
     "composer": "wp-env run cli --env-cwd=wp-content/plugins/virtual-exhibit-plugin composer",
     "start": "wp-scripts start src/index.js",
-    "build": "wp-scripts build src/index.js"
+    "build": "wp-scripts build",
+    "zip": "wp-scripts plugin-zip"
   },
   "dependencies": {
     "@alpinejs/collapse": "^3.14.9",
@@ -30,5 +31,12 @@
     "tailwindcss": "^4.1.10",
     "tiny-slider": "^2.9.4",
     "tippy.js": "^6.3.7"
-  }
+  },
+  "files": [
+    "build",
+    "inc",
+    "views",
+    "vendor",
+    "index.php"
+  ]
 }
