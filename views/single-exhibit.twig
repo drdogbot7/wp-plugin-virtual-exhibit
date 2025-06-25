@@ -112,9 +112,9 @@
 		<div class="bg-gray-500 fixed bottom-0 z-10 w-full p-2 text-base text-white">
 			<div class="relative flex items-center justify-center">
 				<div class="absolute left-0">
-					<a class="fill-white flex! items-center uppercase text-white!" href="/online-exhibits" data-tippy-content="Back to online exhibits">
+					<a class="fill-white flex! items-center uppercase text-white!" href="{{ fn('get_post_type_archive_link', 'exhibit') }}" data-tippy-content="Back to online exhibits">
 						<svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M277.4 4.002C283.5-1.334 292.5-1.334 298.6 4.002L570.6 244C577.2 249.8 577.8 259.1 571.1 266.6C566.2 273.2 556 273.8 549.4 267.1L512 234.1V432C512 476.2 476.2 512 432 512H144C99.82 512 64 476.2 64 432V234.1L26.59 267.1C19.96 273.8 9.849 273.2 4.003 266.6C-1.844 259.1-1.212 249.8 5.414 244L277.4 4.002zM96 206.7V432C96 458.5 117.5 480 144 480H432C458.5 480 480 458.5 480 432V206.7L288 37.34L96 206.7z"/></svg>
-						<div class="md:block hidden ml-4">Online Exhibits Home</div>
+						<div class="md:block hidden ml-4">Virtual Exhibits</div>
 					</a>
 				</div>
 				
@@ -137,10 +137,6 @@
 				</div>
 
 				<div class="gap-x-4 absolute right-0 flex items-center">
-					<a class="gap-x-2 flex items-center uppercase text-white! hover:text-white" href="{{ post.link }}?singlepage=1" data-tippy-content="View as a single page">
-						<div class="sm:block hidden">Single Page</div>
-						<svg class="fill-white w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M365.3 125.3l-106.5-106.5C246.7 6.742 230.5 0 213.5 0H64C28.65 0 0 28.65 0 64l.0065 384c0 35.35 28.65 64 64 64H320c35.35 0 64-28.65 64-64V170.5C384 153.5 377.3 137.3 365.3 125.3zM224 34.08c4.477 1.566 8.666 3.846 12.12 7.299l106.5 106.5C346.1 151.3 348.4 155.5 349.9 160H240C231.2 160 224 152.8 224 144V34.08zM352 448c0 17.64-14.36 32-32 32H64c-17.64 0-32-14.36-32-32V64c0-17.64 14.36-32 32-32h128v112C192 170.5 213.5 192 240 192H352V448zM208 240C208 231.2 200.8 224 192 224S176 231.2 176 240v121.4L123.3 308.7C120.2 305.6 116.1 304 112 304S103.8 305.6 100.7 308.7c-6.25 6.25-6.25 16.38 0 22.62l80 80c6.25 6.25 16.38 6.25 22.62 0l80-80c6.25-6.25 6.25-16.38 0-22.62s-16.38-6.25-22.62 0L208 361.4V240z"/></svg>
-					</a>
 					<button
 						data-tippy-content="Toggle full screen (f)"
 						@click="toggleFullscreen"

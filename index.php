@@ -22,7 +22,7 @@ add_action('init', 'ddb7_register_cpts');
 add_action('wp_enqueue_scripts', 'ddb7_enqueue_front', 100);
 
 /* Filter the single_template with our custom function*/
-add_filter('single_template', 'my_custom_template');
+add_filter('single_template', 'ddb7_exhibit_template');
 
 function ddb7_register_cpts()
 {
@@ -80,10 +80,10 @@ function ddb7_exhibit_template($single) {
     global $post;
 
     /* Checks for single template by post type */
-    if ( $post->post_type == 'online-exhibit' ) {
-        if ( file_exists( __DIR__ . '/inc/single-online-exhibit.php' ) ) {
-            return __DIR__ . '/inc/single-online-exhibit.php';
-        }
+    if ( $post->post_type == 'exhibit' ) {
+			$context = Timber::context();
+			$context['html_class'] = 'online-exhibit';
+			Timber::render(['single-exhibit.twig'], $context);
     }
 
     return $single;
