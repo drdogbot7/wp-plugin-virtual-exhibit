@@ -1,11 +1,32 @@
-@import "tailwindcss" important;
+@import "tailwindcss";
 
-.hello {
-  color: red;
+html.online-exhibit {
+  /* font-size: clamp(14px, 1.75vw, 24px); */
 }
 
-/* .online-exhibit button {
-  display: flex;
-  padding: 0;
-  background-color: unset;
-} */
+.online-exhibit .is-block-content :is(p, h1, h2, h3, h4, h5, h6) {
+  max-width: 60rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.online-exhibit .wp-block-image > img,
+.online-exhibit .wp-block-image > figure > img {
+  width: auto;
+  max-height: calc(100vh - 12rem);
+  margin: auto;
+}
+
+.online-exhibit .wp-block-media-text__media > img {
+  width: auto;
+  max-height: calc(100vh - 12rem);
+}
+
+.online-exhibit .wp-block-embed {
+  max-width: 1080px;
+  margin-inline: auto;
+}
+
+[x-cloak] {
+  display: none;
+}
