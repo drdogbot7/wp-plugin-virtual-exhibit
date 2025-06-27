@@ -60,19 +60,22 @@ function ddb7_add_to_twig($twig)
 
 function ddb7_enqueue_front()
 {
-	$asset_file = include plugin_dir_path(__FILE__) . '/build/index.asset.php';
-	wp_enqueue_script(
-		'ddb7_js',
-		plugin_dir_url( __FILE__ ) . 'build/index.js',
-		['jquery'],
-		$asset_file['version']
-	);
-	wp_enqueue_style(
-		'ddb7_css',
-		plugin_dir_url( __FILE__ ) . 'build/index.css',
-		null,
-		$asset_file['version']
-	);
+  global $post;
+	if ( $post->post_type == 'exhibit' ) {
+		$asset_file = include plugin_dir_path(__FILE__) . '/build/index.asset.php';
+		wp_enqueue_script(
+			'ddb7_js',
+			plugin_dir_url( __FILE__ ) . 'build/index.js',
+			['jquery'],
+			$asset_file['version']
+		);
+		wp_enqueue_style(
+			'ddb7_css',
+			plugin_dir_url( __FILE__ ) . 'build/index.css',
+			null,
+			$asset_file['version']
+		);
+	}
 }
 
 function ddb7_exhibit_template($single) {
@@ -81,9 +84,9 @@ function ddb7_exhibit_template($single) {
 
     /* Checks for single template by post type */
     if ( $post->post_type == 'exhibit' ) {
-			$context = Timber::context();
-			$context['html_class'] = 'online-exhibit';
-			Timber::render(['single-exhibit.twig'], $context);
+        if ( file_exists( __DIR__ . '/single-exhibit.php' ) ) {
+            return __DIR__ . '/single-exhibit.php';
+        }
     }
 
     return $single;
