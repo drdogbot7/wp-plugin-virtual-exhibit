@@ -81,7 +81,7 @@
 			x-show="displayIndex > 1" 
 			x-transition 
 			x-cloak 
-			class="bg-gray-500 gap-x-4 admin-top fixed top-0 left-0 z-20 flex items-center text-white"
+			class="bg-black gap-x-4 admin-top fixed top-0 left-0 z-20 flex items-center text-white"
 		>
 			<h1>
 				<button class="text-base! bg-transparent! px-8! py-4!" @click="exhibitCarousel.goTo('0')">{{ post.title }}</button>
@@ -104,12 +104,12 @@
 			{% for slide in post.content|split('<!--nextpage-->') %}
 			<div id="{{ 'slide-' ~ (loop.index + 1) }}">
 				<div class="flex w-full h-screen px-8 py-20 overflow-y-auto">
-					<div class="is-block-content is-layout-flow w-full m-auto">{{ slide }}</div>
+					<div class="is-block-content is-layout-flow w-full flex flex-col justify-center items-center">{{ slide }}</div>
 				</div>
 			</div>
 			{% endfor %}
 		</div>
-		<div class="bg-gray-500 fixed bottom-0 z-10 w-full p-2 text-base text-white">
+		<div class="bg-black fixed bottom-0 z-10 w-full p-2 text-base text-white">
 			<div class="relative flex items-center justify-center">
 				<div class="absolute left-0">
 					<a class="fill-white flex! items-center uppercase text-white!" href="{{ fn('get_post_type_archive_link', 'exhibit') }}" data-tippy-content="Back to online exhibits">

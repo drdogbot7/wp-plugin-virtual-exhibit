@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --color-black: #1d2327;
+}
+
 html.online-exhibit {
   /* font-size: clamp(14px, 1.75vw, 24px); */
 }
@@ -29,4 +33,9 @@ html.online-exhibit {
 
 [x-cloak] {
   display: none;
+}
+
+.online-exhibit .wp-block-columns {
+  margin-bottom: 0;
+  margin-top: 0;
 }

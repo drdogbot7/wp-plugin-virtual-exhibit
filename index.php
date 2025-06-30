@@ -14,6 +14,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 Timber\Timber::init();
 add_filter('timber/context', 'ddb7_add_to_context');
 add_filter('timber/twig', 'ddb7_add_to_twig');
+add_filter('timber/locations', 'ddb7_set_template_paths');
 
 // Register Custom Post Types and Taxonomies
 add_action('init', 'ddb7_register_cpts');
@@ -57,6 +58,12 @@ function ddb7_add_to_twig($twig)
 	return $twig;
 }
 
+function ddb7_set_template_paths($paths) {
+	/* The timber documentation says we shouldn't need to set this path explicitly, but we did. */
+		$paths[] = [ plugin_dir_path(__FILE__) . '/views' ];
+		
+		return $paths;
+}
 
 function ddb7_enqueue_front()
 {
@@ -84,11 +91,10 @@ function ddb7_exhibit_template($single) {
 
     /* Checks for single template by post type */
     if ( $post->post_type == 'exhibit' ) {
-        if ( file_exists( __DIR__ . '/single-exhibit.php' ) ) {
-            return __DIR__ . '/single-exhibit.php';
+        if ( file_exists( plugin_dir_path(__FILE__) . '/inc/single-exhibit.php' ) ) {
+            return plugin_dir_path(__FILE__) . '/inc/single-exhibit.php';
         }
     }
-
     return $single;
 
 }
