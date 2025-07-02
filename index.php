@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Virtual Exhibit
  * Description: A WordPress plugin to create and manage virtual exhibits.
- * Version: 0.1.1
+ * Version: 0.1.2
  * Author: Jeremy Mullis, Coneflower Consulting
  * Author URI: https://www.coneflower.org
  * License: GPL2
