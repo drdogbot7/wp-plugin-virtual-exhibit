@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-exhibit-black: #000000;
-  --color-exhibit-dark: #222222;
-  --color-exhibit-light: #cccccc;
   --color-exhibit-white: #ffffff;
+  --color-exhibit-black: #000000;
+  --color-exhibit-light: #cccccc;
+  --color-exhibit-dark: #222222;
+  --color-exhibit-ui-bg: var(--color-exhibit-dark);
+  --color-exhibit-ui-text: var(--color-exhibit-white);
+  --color-exhibit-ui-disabled: var(--color-exhibit-light);
+  --color-exhibit-bg: var(--color-exhibit-black);
+  --color-exhibit-text: var(--color-exhibit-white);
+  --color-exhibit-heading: var(--color-exhibit-light);
 }
 
 @base {
@@ -13,10 +19,18 @@
   }
 }
 
-.online-exhibit .is-block-content :is(p, h1, h2, h3, h4, h5, h6) {
+.online-exhibit .is-block-content :is(p, .wp-block-list, .wp-block-heading) {
   max-width: 60rem;
   margin-right: auto;
   margin-left: auto;
+}
+
+.online-exhibit .is-block-content :is(p, .wp-block-list) {
+  color: var(--color-exhibit-text);
+}
+
+.online-exhibit .is-block-content .wp-block-heading {
+  color: var(--color-exhibit-heading);
 }
 
 .online-exhibit .wp-block-image > img,
