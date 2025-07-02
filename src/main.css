@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-black: #1d2327;
+  --color-exhibit-black: #000000;
+  --color-exhibit-dark: #222222;
+  --color-exhibit-light: #cccccc;
+  --color-exhibit-white: #ffffff;
 }
 
-html.online-exhibit {
-  /* font-size: clamp(14px, 1.75vw, 24px); */
+@base {
+  html.online-exhibit {
+    font-size: clamp(14px, 1.75vw, 24px);
+  }
 }
 
 .online-exhibit .is-block-content :is(p, h1, h2, h3, h4, h5, h6) {
@@ -38,4 +43,16 @@ html.online-exhibit {
 .online-exhibit .wp-block-columns {
   margin-bottom: 0;
   margin-top: 0;
+}
+
+.online-exhibit
+  :is(
+    .blocks-gallery-caption figcaption,
+    .wp-block-embed figcaption,
+    .wp-block-image figcaption,
+    .wp-block-table figcaption,
+    .wp-block-audio figcaption,
+    .wp-block-video figcaption
+  ) {
+  color: var(--color-exhibit-light);
 }
