@@ -1,8 +1,7 @@
 {
-  "name": "virtual-exhibit-plugin",
+  "name": "virtual-exhibit",
   "description": "description",
   "authors": "drdogbot7",
-  "version": "0.1.2",
   "devDependencies": {
     "@wordpress/env": "^10.25.0",
     "@wordpress/scripts": "^30.18.0"
