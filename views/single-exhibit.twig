@@ -89,7 +89,7 @@
 		</div>
 		<div x-ref="exhibit">
 			<div id="slide-1">
-				<div class="bg-exhibit-ui-bg relative flex w-full h-screen pb-20 overflow-y-auto">
+				<div class="bg-exhibit-ui-bg relative flex w-full h-screen pb-20 px-6 sm:px-8 overflow-y-auto">
 					{% if post.thumbnail.src %}
 						<img class="opacity-20 absolute inset-0 w-full h-full! object-cover" src="{{ post.thumbnail.src }}" />
 					{% endif %}
@@ -103,8 +103,8 @@
 			</div>
 			{% for slide in post.content|split('<!--nextpage-->') %}
 			<div id="{{ 'slide-' ~ (loop.index + 1) }}">
-				<div class="flex w-full h-screen px-8 py-20 overflow-y-auto">
-					<div class="is-block-content is-layout-flow w-full flex flex-col justify-center items-center">{{ slide }}</div>
+				<div class="w-full h-screen overflow-y-auto">
+					<div class="is-block-content is-layout-flow w-full flex flex-col justify-center items-center px-6 sm:px-8 py-20 min-h-screen">{{ slide }}</div>
 				</div>
 			</div>
 			{% endfor %}
@@ -122,13 +122,13 @@
 						class="disabled:text-exhibit-light disabled:fill-exhibit-ui-disabled gap-x-2 fill-exhibit-ui-text flex! items-center bg-transparent! uppercase text-base!"
 					>
 						<svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M448 256C448 264.8 440.6 272 431.4 272H54.11l140.7 149.3c6.157 6.531 5.655 16.66-1.118 22.59C190.5 446.6 186.5 448 182.5 448c-4.505 0-9.009-1.75-12.28-5.25l-165.9-176c-5.752-6.094-5.752-15.41 0-21.5l165.9-176c6.19-6.562 16.69-7 23.45-1.094c6.773 5.938 7.275 16.06 1.118 22.59L54.11 240h377.3C440.6 240 448 247.2 448 256z"/></svg>
-						PREV
+						<span class="hidden sm:block">PREV</span>
 					</button>
 					<div>
 						<span id="displayIndex" x-text="displayIndex"></span> / <span id="slideCount" x-text="slideCount"></span>
 					</div>
 					<button data-tippy-content="Go to next slide (→)" id="nextButton" class="disabled:text-exhibit-ui-disabled disabled:fill-exhibit-ui-disabled gap-x-2 fill-exhibit-ui-text flex! items-center bg-transparent! uppercase text-base!">
-						NEXT
+						<span class="hidden sm:block">NEXT</span>
 						<svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z"/></svg>
 					</button>
 				</div>
