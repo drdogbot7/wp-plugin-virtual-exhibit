@@ -2,11 +2,10 @@
 /**
  * Plugin Name: Virtual Exhibit
  * Description: A WordPress plugin to create and manage virtual exhibits.
- * Version: 0.1.5
+ * Version: 0.2.0
  * Author: Jeremy Mullis, Coneflower Consulting
  * Author URI: https://www.coneflower.org
  * GitHub Plugin URI: https://github.com/drdogbot7/wp-plugin-virtual-exhibit
- * Release Asset: true
  * License: GPL2
  * 
  */
@@ -31,21 +30,24 @@ add_filter('single_template', 'ddb7_exhibit_template');
 function ddb7_register_cpts()
 {
 	/**
-	 * Post Type Vircual Exhibit
+	 * Post Type Virtual Exhibit
 	 */
 
 	register_extended_post_type('exhibit', [
 		'menu_icon' => 'dashicons-images-alt',
 		'show_in_rest' => true,
+		'admin_cols' => [
+			'type' => [
+				'taxonomy' => 'exhibit_type'
+			]
+		],
 	]);
+	
+	register_extended_taxonomy( 'exhibit_type', 'exhibit', ['meta_box' => 'radio'] );
 }
 
 function ddb7_add_to_context($context)
 {
-	// if (class_exists('acf')) {
-	// 	$context['options'] = get_fields('option');
-	// }
-	// show twig debugging if WP_DEBUG enabled
 	if (in_array(WP_DEBUG, ['true', 'TRUE', 1])) {
 		$context['debug'] = true;
 	}
